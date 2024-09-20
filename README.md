@@ -1,2 +1,2 @@
 # Automação
- (Automação) Gerar termos de recebimento e envia-los para serem assinados eletronicamente via a plataforma Clicksign, através do framework Selenium usando da técnica web scraping.
+ (Automação) Gerar termos de recebimento e enviá-los para assinatura eletrônica via a plataforma Clicksign, utilizando o framework Selenium e a técnica de web scraping.
