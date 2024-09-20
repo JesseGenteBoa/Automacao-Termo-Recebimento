@@ -30,7 +30,7 @@ def gerarFormularios(caminho_arq, data):
     string = """
     TERMO DE RECEBIMENTO E RESPONSABILIDADE
 
-    EQS ENGENHARIA S/A portadora do CNPJ 80.464.753/0001-97 declara para os devidos fins administrativos, civis e criminais, que estamos disponibilizando o CARTÃO CORPORATIVO FLASH vinculado ao CPF 077.222.324-69 e que, a partir desta data 22/08/2024, é de sua responsabilidade pelo uso adequado e preservação do mesmo.
+    EQS ENGENHARIA S/A portadora do CNPJ 80.464.753/0001-97 declara para os devidos fins administrativos, civis e criminais, que estamos disponibilizando o CARTÃO CORPORATIVO FLASH vinculado ao CPF 000.000.000-00 e que, a partir desta data 22/08/2024, é de sua responsabilidade pelo uso adequado e preservação do mesmo.
     O mal uso do cartão ou apropriação indébita do saldo disponibilizado, é passivo de desconto podendo até, acarretar em demissão por justa causa conforme política vigente da empresa e Termo e Condições gerais de uso do cartão, a seguir especificadas.
 
 
@@ -140,19 +140,19 @@ def gerarFormularios(caminho_arq, data):
 
 
     ALAN RODRIGO SILVA ANDRADE
-    CPF 077.222.324-69 – MATRICULA: 025308
+    CPF 000.000.000-00 – MATRICULA: 555555
     """
 
     mes_ano = data[3:]
 
     for indice, cpf in enumerate(cpfs_formatados):
-        texto_editado = string.replace("077.222.324-69", str(cpf))
+        texto_editado = string.replace("000.000.000-00", str(cpf))
         texto_editado = texto_editado.replace("22/08/2024", data)
         texto_editado = texto_editado.replace("08/2024", mes_ano)
         nome = lista_de_nomes[indice].upper()
         nome = nome.strip()
         texto_editado = texto_editado.replace("ALAN RODRIGO SILVA ANDRADE", nome)
-        texto_editado = texto_editado.replace("025308", str(lista_de_matricula[indice]))
+        texto_editado = texto_editado.replace("555555", str(lista_de_matricula[indice]))
         arquivos.append([texto_editado])
         
     caminho = "PDFs"
@@ -194,7 +194,6 @@ def gerarFormularios(caminho_arq, data):
 
         with open(nome_arquivo, 'wb') as f:
             f.write(buffer.getvalue())
-
 
 
     for i, arquivo in enumerate(arquivos):
