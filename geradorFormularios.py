@@ -1,5 +1,6 @@
 import os
 import re
+import shutil
 import pandas as pd
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
@@ -156,7 +157,13 @@ def gerarFormularios(caminho_arq, data):
         arquivos.append([texto_editado])
         
     caminho = "PDFs"
-    os.mkdir(caminho)
+    try:
+        os.mkdir(caminho)
+    except FileExistsError:
+        shutil.rmtree(caminho)
+        os.mkdir(caminho)
+    except PermissionError:
+        return PermissionError
 
     for nome in lista_de_nomes:
         nome = nome.upper()
