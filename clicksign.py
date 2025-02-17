@@ -27,7 +27,7 @@ def enviarEmails(caminho_arq):
     usuario = driver.find_element(By.XPATH, '/html/body/div[2]/main/div/div[2]/div[2]/div/form/div[1]/fieldset/div/input')
     usuario.send_keys("caixa@eqsengenharia.com.br")
     senha = driver.find_element(By.XPATH, '/html/body/div[2]/main/div/div[2]/div[2]/div/form/div[2]/div/fieldset/div/fieldset/div/input')
-    senha.send_keys("CaixaEqs3ng36@")
+    senha.send_keys("***********")
     sleep(3)
     logar = driver.find_element(By.XPATH, '/html/body/div[2]/main/div/div[2]/div[2]/div/form/button')
     logar.click()
