@@ -27,8 +27,11 @@ def enviarEmails(caminho_arq):
     usuario = driver.find_element(By.XPATH, '/html/body/div[2]/main/div/div[2]/div[2]/div/form/div[1]/fieldset/div/input')
     usuario.send_keys("caixa@eqsengenharia.com.br")
     senha = driver.find_element(By.XPATH, '/html/body/div[2]/main/div/div[2]/div[2]/div/form/div[2]/div/fieldset/div/fieldset/div/input')
-    senha.send_keys("*********")
+    senha.send_keys("CaixaEqs3ng36@")
+    sleep(3)
     logar = driver.find_element(By.XPATH, '/html/body/div[2]/main/div/div[2]/div[2]/div/form/button')
+    logar.click()
+    sleep(2)
     logar.click()
 
     while True:
@@ -39,32 +42,49 @@ def enviarEmails(caminho_arq):
         except:
             sleep(0.5)
 
-
-    for i, nome in enumerate(lista_de_nomes):
         
-        sleep(2)
-        while True:
+    sleep(2)
+    while True:
+        try:
+            botao_add_doc = driver.find_element(By.XPATH, '/html/body/div[3]/main/div/div[1]/div[1]/div[1]/button')
+            botao_add_doc.click()
+            break
+        except:
             try:
-                botao_add_doc = driver.find_element(By.XPATH, '/html/body/div[3]/main/div/div[1]/div[1]/div[1]/button')
+                botao_add_doc = driver.find_element(By.XPATH, '/html/body/div[2]/main/div/div[1]/div[1]/div[1]/button')
                 botao_add_doc.click()
                 break
             except:
-                try:
-                    botao_add_doc = driver.find_element(By.XPATH, '/html/body/div[2]/main/div/div[1]/div[1]/div[1]/button')
-                    botao_add_doc.click()
-                    break
-                except:
-                    sleep(0.5)
+                sleep(0.5)
+
+    sleep(2)
+    while True:
+        try:
+            entendido = driver.find_element(By.XPATH, '/html/body/div[16]/div[2]/div[3]/button')
+            entendido.click()
+            break
+        except:
+            sleep(0.5)
+
+    for i, nome in enumerate(lista_de_nomes):
 
         sleep(0.8)
-        
         while True:
             try:
-                botao_selec_arq = driver.find_element(By.XPATH, '/html/body/div[2]/main/div/div[2]/div/div[2]/div[2]/div[1]/div/button[1]')
+                botao_selec_arq = driver.find_element(By.XPATH, '/html/body/div[2]/main/section/div/div/div[1]/div[3]/div/div/div/button')
                 botao_selec_arq.click()
                 break
             except:
                 sleep(0.5)
+
+        while True:
+            try:
+                botao_selec_arq2 = driver.find_element(By.XPATH, '/html/body/div[5]/div/div/button')
+                botao_selec_arq2.click()
+                break
+            except:
+                sleep(0.5)
+        
         
         sleep(1)
 
@@ -82,19 +102,10 @@ def enviarEmails(caminho_arq):
         press("enter")
         sleep(3)
 
-        while True:
-            try:
-                botao_avancar = driver.find_element(By.XPATH, '/html/body/div[2]/main/div/div[2]/div/div[2]/div[2]/div[2]/div[3]/button')
-                botao_avancar.click()
-                break
-            except:
-                sleep(0.8)
-
-        sleep(1)
 
         while True:
             try:
-                botao_sign_agenda = driver.find_element(By.XPATH, '/html/body/div[2]/main/div/div[2]/div/div[1]/ul/li[2]/div/div/div/button')
+                botao_sign_agenda = driver.find_element(By.XPATH, '/html/body/div[2]/main/section/div/div/section[1]/div[1]/ul/li[2]/button')
                 botao_sign_agenda.click()
                 break
             except:
@@ -104,7 +115,7 @@ def enviarEmails(caminho_arq):
 
         while True:
             try:
-                input_contato = driver.find_element(By.XPATH, '/html/body/div[2]/main/div/div[2]/div/section[1]/div[1]/div/div/section/div[1]/div[1]/fieldset/div/fieldset/div/input')
+                input_contato = driver.find_element(By.XPATH, '/html/body/div[2]/main/section/div/div/section[1]/section[1]/div[1]/div/div/section/div[1]/div[1]/fieldset/div/fieldset/div/input')
                 email = lista_de_email[i]
                 email = email.lower()
                 email = email.strip()
@@ -116,21 +127,21 @@ def enviarEmails(caminho_arq):
         sleep(5)
 
         try:
-            checkbox = driver.find_element(By.XPATH, '/html/body/div[2]/main/div/div[2]/div/section[1]/div[1]/div/div/section/div[2]/div[1]/div/div[1]/div[1]/div/div/div/div/fieldset/div/label/div')
+            checkbox = driver.find_element(By.XPATH, '/html/body/div[2]/main/section/div/div/section[1]/section[1]/div[1]/div/div/section/div[2]/div[1]/div/div[1]/div[1]/div/div/div/div/fieldset/div/label/div')
             checkbox.click()
         except:
             input_contato.clear()
             sleep(0.8)
             input_contato.send_keys(nome)
             sleep(4)
-            checkbox = driver.find_element(By.XPATH, '/html/body/div[2]/main/div/div[2]/div/section[1]/div[1]/div/div/section/div[2]/div[1]/div/div[1]/div[1]/div/div/div/div/fieldset/div/label/div')
+            checkbox = driver.find_element(By.XPATH, '/html/body/div[2]/main/section/div/div/section[1]/section[1]/div[1]/div/div/section/div[2]/div[1]/div/div[1]/div[1]/div/div/div/div/fieldset/div/label/div')
             checkbox.click()
 
         sleep(1)
 
         while True:
             try:
-                botao_avancar = driver.find_element(By.XPATH, '/html/body/div[2]/main/div/div[2]/div/section[1]/div[1]/div/div/footer/button[2]')
+                botao_avancar = driver.find_element(By.XPATH, '/html/body/div[2]/main/section/div/div/section[1]/section[1]/div[1]/div/div/footer/button[2]')
                 botao_avancar.click()
                 break
             except:
@@ -140,7 +151,7 @@ def enviarEmails(caminho_arq):
 
         while True:
             try:
-                campo_sign = driver.find_element(By.XPATH, '/html/body/div[2]/main/div/div[2]/div/section[1]/div[1]/div/div/section/div/ul/li/div/div[1]/fieldset/div/div/div/div[1]/span')
+                campo_sign = driver.find_element(By.XPATH, '/html/body/div[2]/main/section/div/div/section[1]/section[1]/div[1]/div/div/section/div/ul/li/div/div[1]/fieldset/div/div/div/div[1]/span')
                 campo_sign.click()
                 sleep(0.8)
                 copy("Assinar para acusar recebimento")
@@ -156,7 +167,7 @@ def enviarEmails(caminho_arq):
         
         while True:
             try:
-                botao_adicionar = driver.find_element(By.XPATH, '/html/body/div[2]/main/div/div[2]/div/section[1]/div[1]/div/div/footer/button[2]')
+                botao_adicionar = driver.find_element(By.XPATH, '/html/body/div[2]/main/section/div/div/section[1]/section[1]/div[1]/div/div/footer/button[2]')
                 botao_adicionar.click()
                 break
             except:
@@ -166,27 +177,7 @@ def enviarEmails(caminho_arq):
 
         while True:
             try:
-                botao_avancar = driver.find_element(By.XPATH, '/html/body/div[2]/main/div/div[2]/div/div[1]/div[2]/div[2]/button[2]')
-                botao_avancar.click()
-                break
-            except:
-                sleep(0.8)
-
-        sleep(3.5)
-
-        while True:
-            try:
-                botao_avancar = driver.find_element(By.XPATH, '/html/body/div[2]/main/div/div[2]/div/div[1]/button[2]')
-                botao_avancar.click()
-                break
-            except:
-                sleep(0.8)
-
-        sleep(1.5)
-
-        while True:
-            try:
-                botao_enviar_doc = driver.find_element(By.XPATH, '/html/body/div[2]/main/div/div[2]/div/div[1]/div[4]/button[2]')
+                botao_enviar_doc = driver.find_element(By.XPATH, '/html/body/div[2]/main/section/div/div/button')
                 botao_enviar_doc.click()
                 break
             except:
@@ -196,9 +187,10 @@ def enviarEmails(caminho_arq):
 
         while True:
             try:
-                voltar_ao_inicio = driver.find_element(By.XPATH, '/html/body/div[2]/main/div/div/div/section/div[2]/button')
+                voltar_ao_inicio = driver.find_element(By.XPATH, '/html/body/div[2]/main/section/div/section/div[2]/button')
                 sleep(2.5)
                 voltar_ao_inicio.click()
+                sleep(1)
                 break
             except:
                 sleep(0.8)
